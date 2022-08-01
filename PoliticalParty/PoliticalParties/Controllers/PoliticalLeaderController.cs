@@ -11,7 +11,6 @@ using System.Threading.Tasks;
 
 namespace PoliticalParties.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
     public class PoliticalLeaderController : ControllerBase
     {
@@ -34,23 +33,8 @@ namespace PoliticalParties.Controllers
         //[ValidateAntiForgeryToken]
         public async Task<IActionResult> Register([FromBody] RegisterPoliticalLeaderViewModel model)
         {
-            var politicalLeaderExists = await _politicalLeaderServices.FindPoliticalLeaderById(model.PoliticalLeaderId);
-            if (politicalLeaderExists != null)
-                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "Political Leader already exists!" });
-            //New object and value for user
-            PoliticalLeader politicalLeader = new PoliticalLeader()
-            {
-
-                CandidateName = model.CandidateName,
-                StateName = model.StateName,
-                PoliticalPartyId=model.PoliticalPartyId,
-                IsDeleted = false
-            };
-            var result = await _politicalLeaderServices.Register(politicalLeader);
-            if (result == null)
-                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Error", Message = "Political Leader creation failed! Please check details and try again." });
-
-            return Ok(new Response { Status = "Success", Message = "Political Leader created successfully!" });
+            //Write Your Code Here
+            throw new NotImplementedException();
 
         }
 
@@ -63,17 +47,8 @@ namespace PoliticalParties.Controllers
         [Route("leaders")]
         public async Task<IActionResult> UpdatePoliticalLeader([FromBody] RegisterPoliticalLeaderViewModel model)
         {
-            var politicalLeader = await _politicalLeaderServices.FindPoliticalLeaderById(model.PoliticalLeaderId);
-            if (politicalLeader == null)
-            {
-                return StatusCode(StatusCodes.Status500InternalServerError, new Response
-                { Status = "Error", Message = $"political Leader With Id = {model.PoliticalLeaderId} cannot be found" });
-            }
-            else
-            {
-                var result = await _politicalLeaderServices.UpdatePoliticalLeader(model);
-                return Ok(new Response { Status = "Success", Message = "Political Leader Edited successfully!" });
-            }
+            //Write Your Code Here
+            throw new NotImplementedException();
         }
 
 
@@ -86,23 +61,8 @@ namespace PoliticalParties.Controllers
         [Route("leaders/{politicalLeaderId}")]
         public async Task<IActionResult> DeletePoliticalLeader(long politicalLeaderId)
         {
-            var politicalLeader = await _politicalLeaderServices.FindPoliticalLeaderById(politicalLeaderId);
-            if (politicalLeader == null || politicalLeader.IsDeleted == true)
-            {
-                return StatusCode(StatusCodes.Status500InternalServerError, new Response
-                { Status = "Error", Message = $"Political Leader With Id = {politicalLeader} cannot be found" });
-            }
-            else
-            {
-                RegisterPoliticalLeaderViewModel register = new RegisterPoliticalLeaderViewModel();
-                register.PoliticalLeaderId = politicalLeader.PoliticalLeaderId;
-                register.CandidateName = politicalLeader.CandidateName;
-                register.StateName = politicalLeader.StateName;
-                register.PoliticalPartyId = politicalLeader.PoliticalPartyId;
-                register.IsDeleted = true;
-                var result = await _politicalLeaderServices.UpdatePoliticalLeader(register);
-                return Ok(new Response { Status = "Success", Message = "Political Leader deleted successfully!" });
-            }
+            //Write Your Code Here
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -114,16 +74,8 @@ namespace PoliticalParties.Controllers
         [Route("leaders/{politicalLeaderId}")]
         public async Task<IActionResult> GetPoliticalLeaderById(long politicalLeaderId)
         {
-            var politicalLeader = await _politicalLeaderServices.FindPoliticalLeaderById(politicalLeaderId);
-            if (politicalLeader == null)
-            {
-                return StatusCode(StatusCodes.Status500InternalServerError, new Response
-                { Status = "Error", Message = $"Political Leader With Id = {politicalLeaderId} cannot be found" });
-            }
-            else
-            {
-                return Ok(politicalLeader);
-            }
+            //Write Your Code Here
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -134,7 +86,8 @@ namespace PoliticalParties.Controllers
         [Route("leaders")]
         public async Task<IEnumerable<PoliticalLeader>> ListAllPoliticalLeaders()
         {
-            return await _politicalLeaderServices.ListAllPoliticalLeader();
+            //Write Your Code Here
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -145,7 +98,8 @@ namespace PoliticalParties.Controllers
         [Route("leaders/by-party-id/{politicalPartyId}")]
         public async Task<IEnumerable<PoliticalLeader>> GetPoliticalLeaderByPoliticalPartyId(long politicalPartyId)
         {
-            return await _politicalLeaderServices.PoliticalLeadersByPoliticalPartyId(politicalPartyId);
+            //Write Your Code Here
+            throw new NotImplementedException();
         }
         #endregion
     }
