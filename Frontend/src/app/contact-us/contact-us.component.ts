@@ -16,7 +16,7 @@ export class Contact {
 })
 export class ContactUsComponent implements OnInit {
   @Output() contactdata = new EventEmitter<Contact>();
-  contactForm: FormGroup;
+  contactForm!: FormGroup;
   public obj: any = {};
   constructor(private fb: FormBuilder) { }
 
