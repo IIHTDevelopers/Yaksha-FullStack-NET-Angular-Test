@@ -31,7 +31,7 @@ export class PlaceFitnessTrainerAppointmentComponent implements OnInit {
 
   
 
-  fitnessForm: FormGroup;
+  fitnessForm!: FormGroup;
   
   constructor() { }
   
