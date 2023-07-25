@@ -14,7 +14,7 @@ BackEnd-Commands
 
 
 * To check whether migrations are applied from terminal:
-(SupplierManagement /sqlcmd -S localhost -U sa -P pass@word1)
+(PoliticalParties /sqlcmd -S localhost -U sa -P pass@word1)
 
 	1> Use PoliticalParty_Db
 	2> Go
