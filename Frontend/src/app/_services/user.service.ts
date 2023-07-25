@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Headers, Http, RequestOptions, Response } from "@angular/http";
-import { map } from 'rxjs/operators';
+import { HttpClient } from "@angular/common/http";
 
 const httpOptions = {
   headers: new Headers({ "Content-Type": "application/json" })
@@ -9,13 +8,16 @@ const httpOptions = {
 @Injectable({ providedIn: 'root' })
 export class UserService {
 
-    public static BaseUrl = "http://localhost:6565/";
+  public static BaseUrl = "http://localhost:6565/";
 
-    constructor(private http: Http) { }
-    postfitnessdata(data){
-      return this.http.post(UserService.BaseUrl+'appointments',data,httpOptions).pipe(map((response: Response) => response.json()));
-    }
-    getfitnessdata() {
-      return this.http.get(UserService.BaseUrl+'appointments',httpOptions).pipe(map((response: Response) => response.json()));
-    }
+  constructor(private http: HttpClient) { }
+
+  postfitnessdata(data: any) {
+    // write your logic here
+    return null;
+  }
+  getfitnessdata() {
+    // write your logic here
+    return null;
+  }
 }
